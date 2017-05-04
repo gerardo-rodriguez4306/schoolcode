@@ -1,3 +1,9 @@
+/*
+  This program creates a linked list with student information;
+  the information stored is their first name, last name, GPA, and
+  zip code. The data structure used is a linked list. The user is prompted
+  with a menu of options and the program runs until the user decides to quit.
+*/
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
