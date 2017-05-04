@@ -1,8 +1,14 @@
+/*
+  Involves a higher-level understanding of structs and how to access them with
+  pointers. This program creates a list of students and prompts the user with
+  operations to perform with values in the list. The data structure used is a
+  dynamic array.
+*/
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 typedef struct record
-{
+{//struct record is created and defined
   char firstname[20];
   char lastname[20];
   double gpa;
@@ -18,7 +24,7 @@ void printMax(record *list, int i, int SIZE)
       max = (list + i)->gpa;
       strcpy(f, (list + i)->firstname);//strcpy since you can't assign
       strcpy(l, (list + i)->lastname);//an array to another array
-    }
+    }//for this, you can also use *(list + i).variable
   }
   printf("%s %s has the max score of %.2lf", f, l, max);
 }
@@ -39,6 +45,7 @@ void printMin(record *list, int i, int SIZE)
 }
 void searchPrint(record *list, int i, int SIZE)
 { //searches the list for an inputted name, prints the record
+  //can take in either first or last name
   int boolean = 0;
   char namesearch[20];
   printf("Enter name for search: ");
@@ -61,7 +68,7 @@ void create(record *list, int i, int SIZE)
   while (i < SIZE)
   {
     printf("First name[max 20 characters]: ");
-    scanf("%s",(list + i)->firstname);//
+    scanf("%s", (list + i)->firstname);
     printf("Last name[max 20 characters]: ");
     scanf("%s", (list + i)->lastname);
     printf("GPA: ");
@@ -87,7 +94,7 @@ void sortPrint(record *list, int entry, int i, int j, int SIZE)
   char tmpfrst[20], tmplst[20];//by ascending order based on the last name or GPA
   double tmpFlt;
   if (entry == 4)          //sorting by GPA
-  {
+  {//bubble sorting algorithm
     for (i = 0; i < SIZE - 1; i++)
     {
       for (j = i + 1; j < SIZE; j++)
@@ -124,9 +131,9 @@ void sortPrint(record *list, int entry, int i, int j, int SIZE)
           tmpFlt = (list + i)->gpa;
           (list + i)->gpa = (list + j)->gpa;
           (list + j)->gpa = tmpFlt;
-        } //here, as in the next conditional, both last name and GPA must be included.
+        } //here, as in the other conditional, both last name and GPA must be included.
       }   //If only one part of data is manipulated, then values will
-    }     //be assigned to another value that does not correspond to it.
+    }     //be assigned to another record that does not correspond to it.
   }
   printAll(list, SIZE);
 }
