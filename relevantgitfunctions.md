@@ -38,7 +38,5 @@ OR you can use the man pages
 
 ## 4) If you're ready to update your source code, 
 
-`git commit -m "<description>"`
-`git pull origin master`
-`git push origin master`
+`git commit -m "<description>"`;`git pull origin master`;`git push origin master`
 
