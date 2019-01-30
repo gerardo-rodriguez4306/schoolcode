@@ -78,3 +78,5 @@ int main()
   print();
   return 0;
 }
+
+/*horribly written code. I hope to look over this and rewrite it completely*/
